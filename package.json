@@ -1,0 +1,22 @@
+{
+  "name": "parkinglotsystemdesign",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --loader @esbuild-kit/esm-loader src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "type":"module",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2"
+  },
+  "devDependencies": {
+    "@esbuild-kit/esm-loader": "^2.6.5"
+  }
+}
