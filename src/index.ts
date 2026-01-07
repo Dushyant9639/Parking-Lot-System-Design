@@ -33,7 +33,7 @@ function readCommand() {
     })
     const parkingLotController = new ParkingLotController();
     const commandController = new CommandController(parkingLotController);
-    rl.on('line', (data) => {
+    rl.on('line', (data:string) => {
         const [command, ...args] = data.split(' ');
         if (command === 'exit') {
             console.log('Exiting!!');
