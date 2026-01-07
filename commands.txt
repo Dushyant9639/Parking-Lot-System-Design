@@ -1,6 +1,48 @@
-create_parking_lot Masai 2 6
-park_vehicle CAR KA-01-DB-1234 black
+create_parking_lot PR1234 2 6
+
+# ---- Default Strategy ----
 display free_count CAR
-unpark_vehicle PR1234_2_5
 display free_count BIKE
+display free_count TRUCK
+display free_count EV_CAR
+
+park_vehicle EV_CAR DL-01-EV-9999 green
+park_vehicle CAR KA-01-DB-1234 black
+park_vehicle BIKE KA-09-BI-2222 red
+park_vehicle TRUCK RJ-14-TR-7878 blue
+
+display free_slots EV_CAR
+display occupied_slots EV_CAR
+
+# ---- Switch to Least Filled Strategy ----
+set_strategy LEAST_FILLED
+
+park_vehicle EV_CAR MH-12-EV-3333 white
+park_vehicle CAR MH-14-CC-8888 silver
+park_vehicle BIKE PB-10-BI-0001 black
+
+display free_count CAR
+display free_count BIKE
+display free_count TRUCK
+display free_count EV_CAR
+
+# ---- Switch to Random Strategy ----
+set_strategy RANDOM
+
+park_vehicle CAR UP-16-CC-4321 red
+park_vehicle EV_CAR HR-26-EV-7777 blue
+
+display occupied_slots CAR
+display occupied_slots EV_CAR
+
+# ---- Unpark (billing will be shown) ----
+unpark_vehicle PR1234_1_1
+unpark_vehicle PR1234_1_4
+
+# ---- Final Status ----
+display free_slots CAR
+display free_slots BIKE
+display free_slots TRUCK
+display free_slots EV_CAR
+
 exit

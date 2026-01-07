@@ -18,7 +18,7 @@ class TicketController {
 
     static generateTicket(lotId:string, slotId:string|number, floorId:string|number, vehicle:IVehicle){
         const ticketId = `${lotId}_${floorId}_${slotId}`;
-        const ticket = new Ticket(ticketId, vehicle);
+        const ticket = new Ticket(ticketId, vehicle, Date.now());
         TicketController.tickets.set(ticketId, ticket);
         return ticket;
     }

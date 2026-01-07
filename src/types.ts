@@ -1,7 +1,8 @@
 enum VehicleType {
     CAR = 'CAR',
     TRUCK = 'TRUCK',
-    BIKE = 'BIKE'
+    BIKE = 'BIKE',
+    EV_CAR = "EV_CAR"
 }
 
 interface IVehicle {
@@ -14,6 +15,7 @@ interface ISlot{
     id:number;
     type: VehicleType;
     isOccupied: boolean;
+    isEVReserved: boolean;
     floorId: number;
     occupy():void;
     release():void;
@@ -22,7 +24,7 @@ interface ISlot{
 interface IFloor{
     id:number;
     slots:Array<ISlot>;
-    addSlot(vehicleType:VehicleType):void;
+    addSlot(vehicleType:VehicleType, isEVReserved?:boolean):void;
     getAvailableSlots(vehicleType?:VehicleType):Array<ISlot>;
     getOccupiedSlots(vehicleType?:VehicleType):Array<ISlot>;
 }
@@ -30,6 +32,7 @@ interface IFloor{
 interface ITicket{
     id:string;
     vehicle:IVehicle
+    entryTime: number;
 }
 
 interface IParkingStrategy{
